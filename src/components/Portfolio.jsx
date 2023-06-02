@@ -11,6 +11,7 @@ const projects = [
     text: 'Recreation of the hit, classic retro game: Snake. Main goal of learning more about typescript and keeping track of live movement with user interaction.',
     href: 'https://github.com/JNovacovici/snake',
     title: 'A Game of Snake!',
+    tech: [{id: 1, tech: 'Typescript'}, {id: 2, tech: 'React'}],
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const projects = [
     text: 'MVP full stack application with a group of engineers where the user has the ability to create, track and connect tasks with a calendar to display however they want. An abunduance of customization at the user disposal, as well as detail metrics to track.',
     href: 'https://github.com/JNovacovici/rpp36-boc-sailboat',
     title: 'Project Encompass: Taking a Calendar One Step Further',
+    tech: [{id: 1, tech: 'Javascript'}, {id: 2, tech: 'React'}, {id: 3, tech: 'Node.js'}, {id: 4, tech: 'Express'}, {id: 5, tech: 'AWS'}],
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const projects = [
     text: 'A project working on replacing an old serviced API with a newer one that has a larger collection of items and optimizing it through multiple EC2 servers, load balancing and checking the breakdown in loader.io.',
     href: 'https://github.com/JNovacovici/sdc-services',
     title: 'SDC: Backend Optimization and Traffic Handling',
+    tech: [{id: 1, tech: 'K6'}, {id: 2, tech: 'AWS: EC2'}, {id: 3, tech: 'Loader.io'}],
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ const projects = [
     text: 'A revamped, sleek retail portal created with an existing API catalogue of products to demonstrate for interested companies how their websites could be redefined.',
     href: 'https://github.com/JNovacovici/FEC',
     title: 'Project Atelier: An Ecommerce Redesign',
+    tech: [{id: 1, tech: 'Javascript'}, {id: 2, tech: 'React'}, {id: 3, tech: 'Node.js'}, {id: 4, tech: 'Express'}, {id: 5, tech: 'RESTful API'}, {id: 6, tech: 'AWS'}],
   },
 ];
 
@@ -47,7 +51,7 @@ const Portfolio = () => {
         </div>
         <div>
           <ul className="group/list">
-            {projects.map(({id, src, text, href, title}) => (
+            {projects.map(({id, src, text, href, title, tech}) => (
               <li className="mb-12">
               <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
                 <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg: -inset-x-6 lg:block lg:group-hover:bg-slate-800/50"></div>
@@ -62,6 +66,13 @@ const Portfolio = () => {
                     </a>
                   </h3>
                   <p className="mt-4 text-sm leading-normal lg:text-lg">{text}</p>
+                  <ul className="mt-2 flex flex-wrap">
+                    {tech.map(({id, tech}) => (
+                    <li className="mr-1.5 mt-2">
+                      <div key={id} className="flex items-center rounded-full bg-teal-400/10 px-3 py-1 text-xs font-medium leading-5 text-teal-300">{tech}</div>
+                    </li>
+                    ))}
+                  </ul>
                 </div>
                 <img loading="lazy"
                      className="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
